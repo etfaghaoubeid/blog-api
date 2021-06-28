@@ -1,0 +1,11 @@
+version: "3.1"
+services: 
+    postgres:
+        # name: postgresql
+        container_name: postgresql
+        image: postgresql
+        ports: 
+            - "${DB_PORT}:${DB_PORT}"
+        environment: 
+            POSTGRES_USER: ${DB_USER_NAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}    
