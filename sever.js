@@ -14,7 +14,7 @@ app.use(express.urlencoded());
 app.use("/api/post", require("./routes/post.route"));
 app.use("/api/auth" , require("./routes/user.route"));
 app.listen(PORT, async () => {
-    // await Post.sync({alter:true})
+    // await Post.sync({alter:true}) 
     // await User.sync({alter:true})
     console.log(`app listening on port : ${PORT}`)  
 })
