@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../config/config.db");
 const TABLE_NAMES = require("../constants/table.names")
-const Post = db.define(TABLE_NAMES.post, {
+const Post = db.define("post", {
     title:{
         type:DataTypes.STRING
     }, 
@@ -10,6 +10,8 @@ const Post = db.define(TABLE_NAMES.post, {
     },
     image:{
         type:DataTypes.STRING
-    }
-},db.sync({ force: true }));
+    }, 
+    
+});//,db.sync({alert:true})
+db.sync({alter:true})
 module.exports = Post;

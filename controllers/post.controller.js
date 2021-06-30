@@ -1,10 +1,16 @@
 const Post = require("../models/post.model");
 
 exports.getPosts = async (req, res) => {
-    const posts = await  Post.findAll({});
+    const posts = await  Post.findAll();
+    // if(posts){
+    //     console.log(posts)
+    //     res.send("atigh data")
+
+    // }
     
 
-    return res.json(posts)
+    // return res.json(posts)
+    res.json(posts)
 
 }
 exports.getPost = async (req, res) => {

@@ -1,2 +1,35 @@
-GET http://localhost:3333/api/ HTTP/1.1
+@hostname = localhost
+@port = 333
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+###
+GET http://localhost:3333/api/post HTTP/1.1
 Content-Type: application/json
+
+###
+POST  http://localhost:3333/api/auth/login  HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"elatigh@gmail.com", 
+    "password":"123456"
+}
+####
+
+
+GET http://localhost:3333/api/auth/users  HTTP/1.1
+Content-Type: application/json
+
+
+####
+POST http://localhost:3333/api/auth/sign-up  HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"atigh", 
+    "email":"elatigh@gmail.com", 
+    "password":"123456", 
+    "username":"etfaghaoubeid"
+}
+###
+POST  
