@@ -11,8 +11,9 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded());
-app.use("/api/post", require("./routes/post.route"));
+app.use("/api/posts", require("./routes/post.route"));
 app.use("/api/auth" , require("./routes/user.route"));
+app.use("/api/accesories" , require("./routes/accessory.routes"))
 app.listen(PORT, async () => {
     // await Post.sync({alter:true}) 
     // await User.sync({alter:true})

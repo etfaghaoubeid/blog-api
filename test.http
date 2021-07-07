@@ -1,14 +1,24 @@
 
 ###
-GET http://localhost:3333/api/post HTTP/1.1
+GET http://localhost:3333/api/posts HTTP/1.1
 Content-Type: application/json
 
+###
+POST  http://localhost:3333/api/post/create-post HTTP/1.1
+Content-Type: application/json
+Authorization: atighloveljene eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5hbWUiOiJhdGlnaCIsImVtYWlsIjoiZWxhdGlnaEBEUzI0LmNvbSIsInVzZXJuYW1lIjoiYXRpZ2giLCJpYXQiOjE2MjUxNDM2NjMsImV4cCI6MTYyNTE0NDI2M30.5m-AJcB5WIDS8iGgHZOFMXKcadtZbAR817IdCvnBMk8
+
+{
+    "title":"title",
+    "content":"content", 
+    "image":"image url"
+}
 ###
 POST  http://localhost:3333/api/auth/login  HTTP/1.1
 Content-Type: application/json
 
 {
-    "email":"elatigh@DS24.com", 
+   "email":"elatigh@DS24.com", 
     "password":"atigh"
 }
 ####
@@ -29,3 +39,41 @@ Content-Type: application/json
     "username":"etfaghaoubeid"
 }
 ###
+GET http://localhost:3333/api/auth/logout  HTTP/1.1
+Content-Type: application/json
+
+###
+POST http://localhost:3333/api/accesories/add-accessory  HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Chargeur", 
+    "price":"250", 
+    "inStock":true, 
+    "description":"chargeur original",
+    "image":"imaage url"
+}
+####
+GET http://localhost:3333/api/accesories HTTP/1.1
+Content-Type: application/json
+
+####
+GET http://localhost:3333/api/accesories/2 HTTP/1.1
+Content-Type: application/json
+
+####
+PUT http://localhost:3333/api/accesories/2  HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Chargeur updated", 
+    "price":"250", 
+    "inStock":true, 
+    "description":"chargeur original updated",
+    "image":"imaage url updated"
+}
+####
+DELETE  http://localhost:3333/api/accesories/4  HTTP/1.1
+Content-Type: application/json
+
+####
