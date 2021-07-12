@@ -1,10 +1,14 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../config/config.db");
 const TABLE_NAMES = require("../constants/table.names")
-const Accessory = db.define("Accessory", {
+const Phone = db.define("phone", {
     name:{
         type:DataTypes.STRING
     }, 
+    isUsed:{
+        type:DataTypes.BOOLEAN,
+        defaultValue:false,
+    },
     price:{
         type:DataTypes.FLOAT,
         allowNull:false
@@ -20,6 +24,6 @@ const Accessory = db.define("Accessory", {
         defaultValue:true
     }
     
-});//,db.sync({alert:true})
+});
 db.sync({alter:true})
-module.exports = Accessory;
+module.exports = Phone;

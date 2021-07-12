@@ -26,16 +26,16 @@ exports.isMatch = async (password ,incryptedPassword )=>{
 exports.generateAccessToken = (user)=>{
   return jwt.sign(user ,process.env.SEKRET_KEY,{expiresIn:"600s"})
 }
-exports.authanticateToken =async(req ,res, next)=>{
-    const authHeader = req.headers["authorization"];
-    const token = authHeader && authHeader.split(" ")[1];
-    if(!token) return res.sendStatus(401);
-    try {
-        const user =  jwt.verify(token, process.env.SEKRET_KEY)
-      req.userId = user.id
-      req.user = user;
-    } catch (error) {
-      res.sendStatus(403)
-    }
-    next()
-}
+// exports.authanticateToken =async(req ,res, next)=>{
+//     const authHeader = req.headers["authorization"];
+//     const token = authHeader && authHeader.split(" ")[1];
+//     if(!token) return res.sendStatus(401);
+//     try {
+//         const user =  jwt.verify(token, process.env.SEKRET_KEY)
+//       req.userId = user.id
+//       req.user = user;
+//     } catch (error) {
+//       res.sendStatus(403)
+//     }
+//     next()
+// }
