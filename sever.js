@@ -1,9 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const db = require("./config/config.db");
-const Phone = require("./models/phone.model");
-const User = require("./models/user.model");
-const { postUp } = require("./seeds/seed.post");
 const cors =require("cors")
 const PORT = process.env.APP_PORT || 3333
 const app = express();

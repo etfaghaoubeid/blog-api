@@ -1,20 +1,24 @@
 
 ###
-GET http://localhost:3333/api/posts HTTP/1.1
+GET http://localhost:3333/api/v1/posts HTTP/1.1
 Content-Type: application/json
 
 ###
-POST  http://localhost:3333/api/post/create-post HTTP/1.1
+# Authorization: atighloveljene eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5hbWUiOiJhdGlnaCIsImVtYWlsIjoiZWxhdGlnaEBEUzI0LmNvbSIsInVzZXJuYW1lIjoiYXRpZ2giLCJpYXQiOjE2MjUxNDM2NjMsImV4cCI6MTYyNTE0NDI2M30.5m-AJcB5WIDS8iGgHZOFMXKcadtZbAR817IdCvnBMk8
+POST  http://localhost:3333/api/v1/phones/add-phone HTTP/1.1
 Content-Type: application/json
-Authorization: atighloveljene eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5hbWUiOiJhdGlnaCIsImVtYWlsIjoiZWxhdGlnaEBEUzI0LmNvbSIsInVzZXJuYW1lIjoiYXRpZ2giLCJpYXQiOjE2MjUxNDM2NjMsImV4cCI6MTYyNTE0NDI2M30.5m-AJcB5WIDS8iGgHZOFMXKcadtZbAR817IdCvnBMk8
 
 {
-    "title":"title",
-    "content":"content", 
-    "image":"image url"
+    "image":"image url",
+    "name":"name",
+    "brand":"brand",
+    "isUsed":false,
+    "price":3444,
+    "description":"description",
+    "inStock":true
 }
 ###
-POST  http://localhost:3333/api/auth/login  HTTP/1.1
+POST  http://localhost:3333/api/v1/auth/login  HTTP/1.1
 Content-Type: application/json
 
 {
@@ -24,12 +28,12 @@ Content-Type: application/json
 ####
 
 
-GET http://localhost:3333/api/auth/users  HTTP/1.1
+GET http://localhost:3333/api/v1/auth/users  HTTP/1.1
 Content-Type: application/json
 
 
 ####
-POST http://localhost:3333/api/auth/sign-up  HTTP/1.1
+POST http://localhost:3333/api/v1/auth/sign-up  HTTP/1.1
 Content-Type: application/json
 
 {
@@ -39,11 +43,11 @@ Content-Type: application/json
     "username":"etfaghaoubeid"
 }
 ###
-GET http://localhost:3333/api/auth/logout  HTTP/1.1
+GET http://localhost:3333/api/v1/auth/logout  HTTP/1.1
 Content-Type: application/json
 
 ###
-POST http://localhost:3333/api/accesories/add-accessory  HTTP/1.1
+POST http://localhost:3333/api/v1/accesories/add-accessory  HTTP/1.1
 Content-Type: application/json
 
 {
@@ -54,15 +58,15 @@ Content-Type: application/json
     "image":"imaage url"
 }
 ####
-GET http://localhost:3333/api/accesories HTTP/1.1
+GET http://localhost:3333/api/v1/accesories HTTP/1.1
 Content-Type: application/json
 
 ####
-GET http://localhost:3333/api/accesories/2 HTTP/1.1
+GET http://localhost:3333/api/v1/accesories/2 HTTP/1.1
 Content-Type: application/json
 
 ####
-PUT http://localhost:3333/api/accesories/2  HTTP/1.1
+PUT http://localhost:3333/api/v1/accesories/2  HTTP/1.1
 Content-Type: application/json
 
 {
@@ -73,7 +77,7 @@ Content-Type: application/json
     "image":"imaage url updated"
 }
 ####
-DELETE  http://localhost:3333/api/accesories/4  HTTP/1.1
+DELETE  http://localhost:3333/api/v1/accesories/4  HTTP/1.1
 Content-Type: application/json
 
 ####

@@ -5,7 +5,7 @@ const { /*authanticateToken*/ atighMiddleware} = require('../utils/auth');
 
  
 router.get("/", getPhones);
-router.post("/add-phone",/* authanticateToken*/ addPhone);
+router.post("/add-phone",addPhone);
 router.delete("/delete-phone/:id", deletePhone);
 router.put("/update-phone/:id", updatePhone);
 
