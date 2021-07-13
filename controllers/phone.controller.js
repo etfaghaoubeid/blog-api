@@ -27,18 +27,19 @@ exports.getPhone = async (req, res) => {
 };
 exports.addPhone = async (req, res) => {
     try {
-        const {name,isUsed,price,description,image,inStock,brand} = req.body;
+        const {name,isUsed,price,memory,description,image,inStock,brand} = req.body;
         console.log(req.body ,"req.body ,111111111111" )
-        const Phone = new Phone({
+        const phone = new Phone({
             name,
+            price,
+            memory,
             brand,
             isUsed,
-            price,
             description,
             image, 
             inStock
             } )
-         const savedPhone =   await Phone.save();
+         const savedPhone =   await phone.save();
         return res.status(201).json({savedPhone , message:"Phone was created successfuly"})
     } catch (error) {
         return res.status(401).json({message:"unauthorized"})
@@ -61,23 +62,27 @@ exports.deletePhone = async (req, res) => {
 exports.updatePhone = async (req, res) => {
     try{
         const {id} = req.params
-        const {name,isUsed,price,description,image,inStock,brand} = req.body;
-        const phoneToUpdate = Phone.findByPk(id);
+        const {name,price,memory,brand,image,isUsed,description,inStock,} = req.body;
+        const phoneToUpdate = await Phone.findByPk(id);
         if(!phoneToUpdate){
             return res.status(400).json({message:"Bad request"})
         }
+
         phoneToUpdate.name = name || phoneToUpdate.name
-        phoneToUpdate.isUsed = isUsed || phoneToUpdate.isUsed
         phoneToUpdate.price = price || phoneToUpdate.price
-        phoneToUpdate.description = description || phoneToUpdate.description
-        phoneToUpdate.image = image || phoneToUpdate.image
-        phoneToUpdate.inStock = inStock || phoneToUpdate.inStock;
+        phoneToUpdate.memory = memory || phoneToUpdate.memory;
         phoneToUpdate.brand = brand || phoneToUpdate.brand;
+        phoneToUpdate.image = image || phoneToUpdate.image
+        phoneToUpdate.isUsed = isUsed || phoneToUpdate.isUsed
+        phoneToUpdate.description = description || phoneToUpdate.description
+        phoneToUpdate.inStock = inStock || phoneToUpdate.inStock;
+        
         const updatedPhone = await phoneToUpdate.save();
+        console.log(updatedPhone ,"updated 1111111")
         if(!updatedPhone){
             return res.status(400).json({message:"Bad request"})
         }
-         const savedPhone =   await Phone.save();
+         const savedPhone =   await updatedPhone.save();
         return res.status(201).json({savedPhone , message:"Phone was updated successfuly"})
     } catch (error) {
         return res.status(401).json({message:"unauthorized"})
