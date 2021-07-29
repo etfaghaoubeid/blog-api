@@ -4,36 +4,43 @@ GET http://localhost:3333/api/v1/phones HTTP/1.1
 Content-Type: application/json
 
 ###
+GET http://localhost:3333/api/v1/phones/11 HTTP/1.1
+Content-Type: application/json
+
+####
+
 # Authorization: atighloveljene eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5hbWUiOiJhdGlnaCIsImVtYWlsIjoiZWxhdGlnaEBEUzI0LmNvbSIsInVzZXJuYW1lIjoiYXRpZ2giLCJpYXQiOjE2MjUxNDM2NjMsImV4cCI6MTYyNTE0NDI2M30.5m-AJcB5WIDS8iGgHZOFMXKcadtZbAR817IdCvnBMk8
 POST  http://localhost:3333/api/v1/phones/add-phone HTTP/1.1
 Content-Type: application/json
 
 {
-    "image":"image url",
-    "name":"name",
-    "brand":"brand",
-    "isUsed":false,
-    "memory":255,
-    "price":3444,
+    "image":"https://images.unsplash.com/photo-1600262606369-acb8a2cf69fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+    "name":"Iphone 12 pro ",
+    "brand":"Apple",
+    "isUsed":true,
+    "memory":120,
+    "price":26000,
     "description":"description",
-    "inStock":true
+    "inStock":true,
+    "imei":"AA-BBBBBB-CCCCCC-D",
+    "quantity":3
 }
 ###
-PUT http://localhost:3333/api/v1/phones/update-phone/2  HTTP/1.1
+PUT http://localhost:3333/api/v1/phones/update-phone/5  HTTP/1.1
 Content-Type: application/json
 
 {
-    "image":"image url updaated",
-    "name":"name updaated",
-    "brand":"brand updaated",
-    "isUsed":false,
+    "image":"https://images.unsplash.com/photo-1603891128711-11b4b03bb138?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    "name":"Iphone 11 ",
+    "brand":"Apple",
+    "isUsed":true,
     "memory":255,
-    "price":3444,
-    "description":"description updaated",
+    "price":190,
+    "description":"description for iphone 11",
     "inStock":true
 }
 ####
-DELETE  http://localhost:3333/api/v1/phones/delete-phone/1  HTTP/1.1
+DELETE  http://localhost:3333/api/v1/phones/delete-phone/7  HTTP/1.1
 Content-Type: application/json
 
 ####

@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../config/config.db");
-const TABLE_NAMES = require("../constants/table.names")
+const TABLE_NAMES = require("../constants/table.names");
 const Phone = db.define("phone", {
     name:{
         type:DataTypes.STRING,
@@ -31,6 +31,12 @@ const Phone = db.define("phone", {
     inStock:{
         type:DataTypes.BOOLEAN,
         defaultValue:true
+    },
+    quantity:{
+        type:DataTypes.INTEGER,
+    }, 
+    imei:{
+        type:DataTypes.STRING
     }
     
 });
