@@ -27,7 +27,10 @@ exports.getPhone = async (req, res) => {
 };
 exports.addPhone = async (req, res) => {
     try {
-        const {name,isUsed,price,memory,description,image,inStock,brand , imei, quantity} = req.body;
+        const {name,
+            isUsed,price,
+            memory,description,inStock,brand ,
+             imei, quantity,images} = req.body;
         const phone = new Phone({
             name,
             price,
@@ -35,10 +38,10 @@ exports.addPhone = async (req, res) => {
             brand,
             isUsed,
             description,
-            image, 
             inStock, 
             imei, 
-            quantity
+            quantity,
+            images,
             } )
          const savedPhone =   await phone.save();
         return res.status(201).json({savedPhone , message:"Phone was created successfuly"})
@@ -63,22 +66,21 @@ exports.deletePhone = async (req, res) => {
 exports.updatePhone = async (req, res) => {
     try{
         const {id} = req.params
-        const {name,price,memory,brand,image,isUsed,description,inStock,imei, quantity} = req.body;
+        const {name,price,memory,brand,isUsed,description,inStock,imei, quantity, images} = req.body;
         const phoneToUpdate = await Phone.findByPk(id);
         if(!phoneToUpdate){
             return res.status(400).json({message:"Bad request"})
         }
-
         phoneToUpdate.name = name || phoneToUpdate.name
         phoneToUpdate.price = price || phoneToUpdate.price
         phoneToUpdate.memory = memory || phoneToUpdate.memory;
         phoneToUpdate.brand = brand || phoneToUpdate.brand;
-        phoneToUpdate.image = image || phoneToUpdate.image
-        phoneToUpdate.isUsed = isUsed || phoneToUpdate.isUsed
+        phoneToUpdate.isUsed = isUsed || phoneToUpdate.isUsed;
         phoneToUpdate.description = description || phoneToUpdate.description
         phoneToUpdate.inStock = inStock || phoneToUpdate.inStock;
         phoneToUpdate.imei = imei || phoneToUpdate.imei;
         phoneToUpdate.quantity = quantity || phoneToUpdate.quantity;
+        phoneToUpdate.images = images || phoneToUpdate.images;
         
         
         const updatedPhone = await phoneToUpdate.save();

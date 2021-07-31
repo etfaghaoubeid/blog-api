@@ -7,14 +7,13 @@ Content-Type: application/json
 GET http://localhost:3333/api/v1/phones/11 HTTP/1.1
 Content-Type: application/json
 
-####
+#### 
 
 # Authorization: atighloveljene eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5hbWUiOiJhdGlnaCIsImVtYWlsIjoiZWxhdGlnaEBEUzI0LmNvbSIsInVzZXJuYW1lIjoiYXRpZ2giLCJpYXQiOjE2MjUxNDM2NjMsImV4cCI6MTYyNTE0NDI2M30.5m-AJcB5WIDS8iGgHZOFMXKcadtZbAR817IdCvnBMk8
 POST  http://localhost:3333/api/v1/phones/add-phone HTTP/1.1
 Content-Type: application/json
 
 {
-    "image":"https://images.unsplash.com/photo-1600262606369-acb8a2cf69fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
     "name":"Iphone 12 pro ",
     "brand":"Apple",
     "isUsed":true,
@@ -23,7 +22,9 @@ Content-Type: application/json
     "description":"description",
     "inStock":true,
     "imei":"AA-BBBBBB-CCCCCC-D",
-    "quantity":3
+    "quantity":3,
+    "images":["https://images.unsplash.com/photo-1610602699083-1d70b860505b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80", 
+    "https://images.unsplash.com/photo-1610602699083-1d70b860505b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"]
 }
 ###
 PUT http://localhost:3333/api/v1/phones/update-phone/5  HTTP/1.1
@@ -40,7 +41,7 @@ Content-Type: application/json
     "inStock":true
 }
 ####
-DELETE  http://localhost:3333/api/v1/phones/delete-phone/7  HTTP/1.1
+DELETE  http://localhost:3333/api/v1/phones/delete-phone/8  HTTP/1.1
 Content-Type: application/json
 
 ####

@@ -18,9 +18,6 @@ const Phone = db.define("phone", {
         type:DataTypes.STRING,
         allowNull:false,
     },
-    image:{
-        type:DataTypes.STRING
-    }, 
     isUsed:{
         type:DataTypes.BOOLEAN,
         defaultValue:false,
@@ -37,7 +34,10 @@ const Phone = db.define("phone", {
     }, 
     imei:{
         type:DataTypes.STRING
-    }
+    },
+    images:{
+        type:DataTypes.ARRAY(DataTypes.STRING)
+    },
     
 });
 db.sync({alter:true})
